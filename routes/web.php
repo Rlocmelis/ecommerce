@@ -2,7 +2,7 @@
 
 
 
-Route::get('/', function () {return view('welcome');});
+Route::get('/', function () {return view('pages.index');});
 //auth & user
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
@@ -20,5 +20,15 @@ Route::post('admin-password/email', 'Admin\ForgotPasswordController@sendResetLin
 Route::get('admin/reset/password/{token}', 'Admin\ResetPasswordController@showResetForm')->name('admin.password.reset');
 Route::post('admin/update/reset', 'Admin\ResetPasswordController@reset')->name('admin.reset.update');
 Route::get('/admin/Change/Password','AdminController@ChangePassword')->name('admin.password.change');
-Route::post('/admin/password/update','AdminController@Update_pass')->name('admin.password.update'); 
+Route::post('/admin/password/update','AdminController@Update_pass')->name('admin.password.update');
 Route::get('admin/logout', 'AdminController@logout')->name('admin.logout');
+
+
+        //Admin Section
+        Route::get('admin/categories', 'Admin\Category\CategoryController@category')->name('categories');
+
+        //Categories
+        Route::post('admin/store/category', 'Admin\Category\CategoryController@storecategory')->name('store.category');
+        Route::get('delete/category/{id}', 'Admin\Category\CategoryController@Deletecategory');
+        Route::get('edit/category/{id}', 'Admin\Category\CategoryController@Editcategory');
+        Route::post('update/category/{id}', 'Admin\Category\CategoryController@Updatecategory');
