@@ -32,3 +32,17 @@ Route::get('admin/logout', 'AdminController@logout')->name('admin.logout');
         Route::get('delete/category/{id}', 'Admin\Category\CategoryController@Deletecategory');
         Route::get('edit/category/{id}', 'Admin\Category\CategoryController@Editcategory');
         Route::post('update/category/{id}', 'Admin\Category\CategoryController@Updatecategory');
+
+        // Brands
+        Route::get('admin/brands', 'Admin\Category\BrandController@brand')->name('brands');
+        Route::post('admin/store/brand', 'Admin\Category\BrandController@storebrand')->name('store.brand');
+        Route::get('delete/brand/{id}', 'Admin\Category\BrandController@DeleteBrand');
+        Route::get('edit/brand/{id}', 'Admin\Category\BrandController@EditBrand');
+        Route::post('update/brand/{id}', 'Admin\Category\BrandController@UpdateBrand');
+
+        //Sub categories
+        Route::get('admin/sub/category', 'Admin\Category\SubCategoryController@subcategories')->name('sub.categories');
+        Route::post('admin/store/suncat', 'Admin\Category\SubCategoryController@storesubcat')->name('store.subcategory');
+        Route::get('delete/subcategory/{id}', 'Admin\Category\SubCategoryController@DeleteSubcat');
+        Route::get('edit/subcategory/{id}', 'Admin\Category\SubCategoryController@EditSubcat');
+        Route::post('update/subcategory/{id}', 'Admin\Category\SubCategoryController@UpdateSubcat');
