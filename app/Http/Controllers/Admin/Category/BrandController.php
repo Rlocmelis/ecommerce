@@ -97,5 +97,5 @@ class BrandController extends Controller
        return Redirect()->route('brands')->with($notification);
    	}
   }
-  
+
 }
