@@ -32,7 +32,7 @@
                 <!-- Deals -->
 
                 <div class="deals">
-                    <div class="deals_title">Deals of the Week</div>
+                    <div class="deals_title">{{ __('messages.Deals of the Week') }}</div>
                     <div class="deals_slider_container">
 
                         <!-- Deals Slider -->
@@ -74,29 +74,29 @@
                         </div>
                         <div class="available">
                             <div class="available_line d-flex flex-row justify-content-start">
-                                <div class="available_title">Available: <span>{{ $ht->product_quantity  }}</span></div>
-                                <div class="sold_title ml-auto">Already sold: <span>28</span></div>
+                                <div class="available_title">{{ __('messages.Available:') }}  <span>{{ $ht->product_quantity  }}</span></div>
+                                <div class="sold_title ml-auto">{{ __('messages.Already sold:') }}  <span>28</span></div>
                             </div>
                             <div class="available_bar"><span style="width:17%"></span></div>
                         </div>
                         <div class="deals_timer d-flex flex-row align-items-center justify-content-start">
                             <div class="deals_timer_title_container">
-                                <div class="deals_timer_title">Hurry Up</div>
-                                <div class="deals_timer_subtitle">Offer ends in:</div>
+                                <div class="deals_timer_title">{{ __('messages.Hurry Up') }} </div>
+                                <div class="deals_timer_subtitle">{{ __('messages.Offer ends in:') }} </div>
                             </div>
                             <div class="deals_timer_content ml-auto">
                                 <div class="deals_timer_box clearfix" data-target-time="">
                                     <div class="deals_timer_unit">
                                         <div id="deals_timer1_hr" class="deals_timer_hr"></div>
-                                        <span>hours</span>
+                                        <span>{{ __('messages.hours') }}</span>
                                     </div>
                                     <div class="deals_timer_unit">
                                         <div id="deals_timer1_min" class="deals_timer_min"></div>
-                                        <span>mins</span>
+                                        <span>{{ __('messages.mins') }}</span>
                                     </div>
                                     <div class="deals_timer_unit">
                                         <div id="deals_timer1_sec" class="deals_timer_sec"></div>
-                                        <span>secs</span>
+                                        <span>{{ __('messages.secs') }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -120,7 +120,7 @@
                     <div class="tabbed_container">
                         <div class="tabs">
                             <ul class="clearfix">
-                                <li class="active">Featured</li>
+                                <li class="active">{{ __('messages.Featured') }}</li>
                             </ul>
                             <div class="tabs_line"><span></span></div>
                         </div>
@@ -151,7 +151,7 @@
                                           <input type="radio" name="product_color" style="background:#000000">
                                           <input type="radio" name="product_color" style="background:#999999">
                                       </div>
-                                      <button class="product_cart_button addcart" data-id="{{$row->id}}">Add to Cart</button>
+                                      <button class="product_cart_button addcart" data-id="{{$row->id}}">{{ __('messages.Add to Cart') }}</button>
                                   </div>
                               </div>
 
@@ -203,12 +203,12 @@
         <div class="row">
             <div class="col-lg-3">
                 <div class="popular_categories_content">
-                    <div class="popular_categories_title">Popular Categories</div>
+                    <div class="popular_categories_title">{{ __('messages.Popular Categories') }}</div>
                     <div class="popular_categories_slider_nav">
                         <div class="popular_categories_prev popular_categories_nav"><i class="fas fa-angle-left ml-auto"></i></div>
                         <div class="popular_categories_next popular_categories_nav"><i class="fas fa-angle-right ml-auto"></i></div>
                     </div>
-                    <div class="popular_categories_link"><a href="#">full catalog</a></div>
+                    <div class="popular_categories_link"><a href="#">{{ __('messages.full catalog') }}</a></div>
                 </div>
             </div>
 
@@ -280,7 +280,7 @@
                         </div>
 
                         <div class="rating_r rating_r_4 banner_2_rating"><i></i><i></i><i></i><i></i><i></i></div>
-                        <div class="button banner_2_button"><a href="#">Explore</a></div>
+                        <div class="button banner_2_button"><a href="#">{{ __('messages.Explore') }}</a></div>
                     </div>
 
                 </div>
@@ -355,7 +355,7 @@ $product = DB::table('products')->where('category_id',$catid)->where('status',1)
                                                       <input type="radio" name="product_color" style="background:#000000">
                                                       <input type="radio" name="product_color" style="background:#999999">
                                                   </div>
-                                                  <button class="product_cart_button">Add to Cart</button>
+                                                  <button class="product_cart_button">{{ __('messages.Add to Cart') }}</button>
                                               </div>
                                           </div>
 
@@ -461,7 +461,7 @@ $product = DB::table('products')->where('category_id',$catid)->where('status',1)
                                                       <input type="radio" name="product_color" style="background:#000000">
                                                       <input type="radio" name="product_color" style="background:#999999">
                                                   </div>
-                                                  <button class="product_cart_button">Add to Cart</button>
+                                                  <button class="product_cart_button">{{ __('messages.Add to Cart') }}</button>
                                               </div>
                                           </div>
 
@@ -520,7 +520,7 @@ $product = DB::table('products')->where('category_id',$catid)->where('status',1)
             <!-- Trends Content -->
             <div class="col-lg-3">
                 <div class="trends_container">
-                    <h2 class="trends_title">Buy One Get One</h2>
+                    <h2 class="trends_title">{{ __('messages.Buy One Get One') }}</h2>
                     <div class="trends_text"><p>Lorem ipsum dolor sit amet, consectetur adipiscing Donec et.</p></div>
                     <div class="trends_slider_nav">
                         <div class="trends_prev trends_nav"><i class="fas fa-angle-left ml-auto"></i></div>
@@ -562,12 +562,12 @@ $product = DB::table('products')->where('category_id',$catid)->where('status',1)
                                         <div class="product_price discount">${{$row->discount_price }}<span>${{$row->selling_price}} </span></div>
                                         @endif
 
-                                          <a href=" " class="btn btn-danger btn-sm">Add to Cart</a>
+                                          <a href=" " class="btn btn-danger btn-sm">{{ __('messages.Add to Cart') }}</a>
 
                                     </div>
                                 </div>
                                 <ul class="trends_marks">
-                                    <li class="trends_mark trends_new">BuyGet</li>
+                                    <li class="trends_mark trends_new">{{ __('messages.BuyGet') }}</li>
                                 </ul>
                                   <button class="addwishlist" data-id="{{$row->id}}">
                                 <div class="trends_fav"><i class="fas fa-heart"></i></div>
@@ -594,17 +594,17 @@ $product = DB::table('products')->where('category_id',$catid)->where('status',1)
                 <div class="newsletter_container d-flex flex-lg-row flex-column align-items-lg-center align-items-center justify-content-lg-start justify-content-center">
                     <div class="newsletter_title_container">
                         <div class="newsletter_icon"><img src="{{ asset('public/frontend/images/send.png')}}" alt=""></div>
-                        <div class="newsletter_title">Sign up for Newsletter</div>
-                        <div class="newsletter_text"><p>...and receive %20 coupon for first shopping.</p></div>
+                        <div class="newsletter_title">{{ __('messages.Sign up for Newsletter') }}</div>
+                        <div class="newsletter_text"><p>{{ __('messages....and receive %20 coupon for first shopping.') }}</p></div>
                     </div>
                     <!-- Subscription -->
                     <div class="newsletter_content clearfix">
                         <form action="{{ route('store.newsletter')}}" method="post" class="newsletter_form">
                         @csrf
-                            <input type="email" class="newsletter_input" required="required" placeholder="Enter your email address" name="email">
-                            <button class="newsletter_button" type="submit">Subscribe</button>
+                            <input type="email" class="newsletter_input" required="required" placeholder="{{ __('messages.Enter your email address') }}" name="email">
+                            <button class="newsletter_button" type="submit">{{ __('messages.Subscribe') }}</button>
                         </form>
-                        <div class="newsletter_unsubscribe_link"><a href="#">unsubscribe</a></div>
+                        <div class="newsletter_unsubscribe_link"><a href="#">{{ __('messages.unsubscribe') }}</a></div>
                     </div>
 
                 </div>

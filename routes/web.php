@@ -129,3 +129,6 @@ Route::get('admin/logout', 'AdminController@logout')->name('admin.logout');
 
         Route::get('/auth/redirect/{provider}','SocialController@redirect');
         Route::get('/callback/{provider}','SocialController@callback');
+
+        //Language
+        Route::get('lang/{locale}','LanguageController');

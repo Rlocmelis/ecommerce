@@ -18,7 +18,7 @@ $category = DB::table('categories')->get();
                     <div class="cat_menu_container">
                         <div class="cat_menu_title d-flex flex-row align-items-center justify-content-start">
                             <div class="cat_burger"><span></span><span></span><span></span></div>
-                            <div class="cat_menu_text">categories</div>
+                            <div class="cat_menu_text">{{ __('messages.categories') }}</div>
                         </div>
 
         <ul class="cat_menu">
@@ -46,14 +46,6 @@ $category = DB::table('categories')->get();
 
                     <!-- Menu Trigger -->
 
-                    <div class="menu_trigger_container ml-auto">
-                        <div class="menu_trigger d-flex flex-row align-items-center justify-content-end">
-                            <div class="menu_burger">
-                                <div class="menu_trigger_text">menu</div>
-                                <div class="cat_burger menu_burger_inner"><span></span><span></span><span></span></div>
-                            </div>
-                        </div>
-                    </div>
 
                 </div>
             </div>
@@ -72,7 +64,7 @@ $category = DB::table('categories')->get();
 
                     <div class="page_menu_search">
                         <form action="#">
-                            <input type="search" required="required" class="page_menu_search_input" placeholder="Search for products...">
+                            <input type="search" required="required" class="page_menu_search_input" placeholder="{{ __('messages.Search for products...') }}">
                         </form>
                     </div>
                 </div>
@@ -113,7 +105,7 @@ $slider = DB::table('products')
 
                 </div>
                 <div class="banner_product_name">{{$slider->brand_name}}</div>
-                <div class="button banner_button"><a href="#">Shop Now</a></div>
+                <div class="button banner_button"><a href="#">{{ __('messages.Shop Now') }}</a></div>
             </div>
         </div>
     </div>

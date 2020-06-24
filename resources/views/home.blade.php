@@ -8,9 +8,9 @@
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Body</th>
+              <th scope="col">1</th>
+              <th scope="col">2</th>
+              <th scope="col">3</th>
             </tr>
           </thead>
           <tbody>
@@ -42,12 +42,12 @@
             <h5 class="card-title text-center">{{Auth::user()->name}}</h5>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item"><a href="{{route('password.change')}}">Change Password</a></li>
-            <li class="list-group-item">line line</li>
-            <li class="list-group-item">line line</li>
+            <li class="list-group-item"><a href="{{route('password.change')}}">{{ __('messages.Change Password') }}</a></li>
+            <li class="list-group-item">1</li>
+            <li class="list-group-item">2</li>
           </ul>
           <div class="card-body">
-            <a href="{{route('user.logout')}}" class="btn btn-danger btn-sm btn-block">Logout</a>
+            <a href="{{route('user.logout')}}" class="btn btn-danger btn-sm btn-block">{{ __('messages.Logout') }}</a>
           </div>
         </div>
       </div>

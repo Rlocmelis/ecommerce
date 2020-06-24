@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
 <title>e-shop</title>
 <meta charset="utf-8">
@@ -47,24 +47,21 @@
                            <div class="top_bar_menu">
                                <ul class="standard_dropdown top_bar_dropdown">
                                    <li>
-                                     @if(Session::has('Latvian'))
-                                     <a href="#">Latvian</a>
-                                     @else
-                                     <a href="#">English<i class="fas fa-chevron-down"></i></a></li>
-                                     @endif
+                                     <a href="/lang/lv">{{ __('messages.Latvian') }}</a>
+                                     <a href="/lang/en">{{ __('messages.English') }}<i class="fas fa-chevron-down"></i></a></li>
                                    </li>
                                </ul>
                            </div>
                            <div class="top_bar_user">
                              @guest
-                             <div><a href="{{ route('login')}}"><div class="user_icon"><img src="{{ asset('public/frontend/images/user.svg')}}" alt=""></div>Sign in / Register</a></div>
+                             <div><a href="{{ route('login')}}"><div class="user_icon"><img src="{{ asset('public/frontend/images/user.svg')}}" alt=""></div>{{ __('messages.Sign in / Register') }}</a></div>
                              @else
                              <ul class="standard_dropdown top_bar_dropdown">
                                  <li>
-                                     <a href="{{route('home')}}"> <div class="user_icon"><img src="{{ asset('public/frontend/images/user.svg')}}" alt=""></div>Profile<i class="fas fa-chevron-down"></i></a>
+                                     <a href="{{route('home')}}"> <div class="user_icon"><img src="{{ asset('public/frontend/images/user.svg')}}" alt=""></div>{{ __('messages.Profile') }}<i class="fas fa-chevron-down"></i></a>
                                      <ul>
-                                         <li><a href="{{route('user.wishlist')}}">Wishlist</a></li>
-                                         <li><a href="{{route('user.checkout')}}">Checkout</a></li>
+                                         <li><a href="{{route('user.wishlist')}}">{{ __('messages.Wishlist') }}</a></li>
+                                         <li><a href="{{route('user.checkout')}}">{{ __('messages.Checkout') }}</a></li>
                                      </ul>
                                  </li>
                              </ul>
@@ -99,10 +96,10 @@ $category = DB::table('categories')->get();
                            <div class="header_search_content">
                                <div class="header_search_form_container">
                                    <form action="#" class="header_search_form clearfix">
-                                       <input type="search" required="required" class="header_search_input" placeholder="Search for products...">
+                                       <input type="search" required="required" class="header_search_input" placeholder="{{ __('messages.Search for products...') }}">
                                        <div class="custom_dropdown">
                                            <div class="custom_dropdown_list">
-                                               <span class="custom_dropdown_placeholder clc">All Categories</span>
+                                               <span class="custom_dropdown_placeholder clc">{{ __('messages.All Categories') }}</span>
                                                <i class="fas fa-chevron-down"></i>
                        <ul class="custom_list clc">
                         @foreach($category as $row)
@@ -134,7 +131,7 @@ $wishlist = DB::table('wishlists')->where('user_id',Auth::id())->get();
 @endphp
                                <div class="wishlist_icon"><img src="{{ asset('public/frontend/images/heart.png')}}" alt=""></div>
                                <div class="wishlist_content">
-                                   <div class="wishlist_text"><a href="{{route('user.wishlist')}}">Wishlist</a></div>
+                                   <div class="wishlist_text"><a href="{{route('user.wishlist')}}">{{ __('messages.Wishlist') }}</a></div>
                                    <div class="wishlist_count">{{count($wishlist)}}</div>
                                </div>
 @endguest
@@ -148,7 +145,7 @@ $wishlist = DB::table('wishlists')->where('user_id',Auth::id())->get();
                                     <div class="cart_count"><span>{{ Cart::count() }}</span></div>
                                 </div>
                                 <div class="cart_content">
-                                    <div class="cart_text"><a href="{{ route('show.cart') }}">Cart</a></div>
+                                    <div class="cart_text"><a href="{{ route('show.cart') }}">{{ __('messages.Cart') }}</a></div>
                                     <div class="cart_price">${{ Cart::subtotal() }}</div>
                                 </div>
                             </div>

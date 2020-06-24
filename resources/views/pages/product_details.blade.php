@@ -43,7 +43,7 @@
           <div class="row">
           	<div class="col-lg-4">
           	<div class="form-group">
-          		<label for="exampleFormControlSelect1">Color</label>
+          		<label for="exampleFormControlSelect1">{{ __('messages.Color') }}</label>
           		<select class="form-control input-lg" id="exampleFormControlSelect1" name="color"> @foreach($product_color as $color)
           			<option value="{{ $color }}">{{ $color }}</option>
 
@@ -58,7 +58,7 @@
 @else
 <div class="col-lg-4">
           	<div class="form-group">
-          		<label for="exampleFormControlSelect1">Size</label>
+          		<label for="exampleFormControlSelect1">{{ __('messages.Size') }}</label>
           		<select class="form-control input-lg" id="exampleFormControlSelect1" name="size">
           			 @foreach($product_size as $size)
           			<option value="{{ $size }}">{{ $size }}</option>
@@ -74,7 +74,7 @@
 
           	<div class="col-lg-4">
           	<div class="form-group">
-          		<label for="exampleFormControlSelect1">Quantity</label>
+          		<label for="exampleFormControlSelect1">{{ __('messages.Quantity') }}</label>
           		 <input class="form-control" type="number" value="1" pattern="[0-9]" name="qty">
           	</div>
           	</div>
@@ -94,7 +94,7 @@
 
 
 								<div class="button_container">
-									<button type="submit" class="button cart_button">Add to Cart</button>
+									<button type="submit" class="button cart_button">{{ __('messages.Add to Cart') }}</button>
 									<div class="product_fav"><i class="fas fa-heart"></i></div>
 								</div>
 
@@ -119,7 +119,7 @@
 			<div class="row">
 				<div class="col">
 					<div class="viewed_title_container">
-						<h3 class="viewed_title">Product Details</h3>
+						<h3 class="viewed_title">{{ __('messages.Product Details') }}</h3>
 						<div class="viewed_nav_container">
 							<div class="viewed_nav viewed_prev"><i class="fas fa-chevron-left"></i></div>
 							<div class="viewed_nav viewed_next"><i class="fas fa-chevron-right"></i></div>
@@ -129,13 +129,13 @@
 
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item">
-    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Product Details</a>
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">{{ __('messages.Product Details') }}</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Video Link</a>
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">{{ __('messages.Video Link') }}</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Product Review</a>
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">{{ __('messages.Product Review') }}</a>
   </li>
 </ul>
 <div class="tab-content" id="myTabContent">
