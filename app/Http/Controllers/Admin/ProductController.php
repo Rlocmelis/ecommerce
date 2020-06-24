@@ -82,33 +82,21 @@ class ProductController extends Controller
       $data['image_three'] = 'public/media/product/'.$image_three_name;
 
       $product = DB::table('products')->insert($data);
-      $notification=array(
-        'messege'=>'Product Inserted Successfully',
-        'alert-type'=>'success'
-      );
-      return Redirect()->back()->with($notification);
+      return Redirect()->back();
     }
 
   }
 
     public function inactive($id){
       DB::table('products')->where('id',$id)->update(['status'=>0]);
-      $notification=array(
-        'messege'=>'The Product is now Inactive',
-        'alert-type'=>'success'
-      );
-      return Redirect()->back()->with($notification);
+      return Redirect()->back();
 
 
     }
 
     public function active($id){
       DB::table('products')->where('id',$id)->update(['status'=>1]);
-      $notification=array(
-        'messege'=>'The Product is now Active',
-        'alert-type'=>'success'
-      );
-      return Redirect()->back()->with($notification);
+      return Redirect()->back();
 
 
     }
@@ -124,11 +112,7 @@ class ProductController extends Controller
       unlink($image2);
       unlink($image3);
       DB::table('products')->where('id',$id)->delete();
-      $notification=array(
-        'messege'=>'The Product has been Deleted',
-        'alert-type'=>'success'
-      );
-      return Redirect()->back()->with($notification);
+      return Redirect()->back();
     }
 
     public function ViewProduct($id){
@@ -176,18 +160,10 @@ class ProductController extends Controller
 
       $update = DB::table('products')->where('id',$id)->update($data);
       if ($update){
-        $notification=array(
-          'messege'=>'The Product has been Updated',
-          'alert-type'=>'success'
-        );
-        return Redirect()->route('all.product')->with($notification);
+        return Redirect()->route('all.product');
       }
       else {
-        $notification=array(
-          'messege'=>'Nothing to Update',
-          'alert-type'=>'success'
-        );
-        return Redirect()->route('all.product')->with($notification);
+        return Redirect()->route('all.product');
       }
     }
 
@@ -213,11 +189,7 @@ class ProductController extends Controller
         $success = $image_one->move($upload_path,$image_full_name);
         $data['image_one'] = $image_url;
         $productimg = DB::table('products')->where('id',$id)->update($data);
-        $notification=array(
-          'messege'=>'Product Image One Updated Successfully',
-          'alert-type'=>'success'
-        );
-        return Redirect()->route('all.product')->with($notification);
+        return Redirect()->route('all.product');
       }
 
       if ($image_two) {
@@ -230,11 +202,7 @@ class ProductController extends Controller
         $success = $image_two->move($upload_path,$image_full_name);
         $data['image_two'] = $image_url;
         $productimg = DB::table('products')->where('id',$id)->update($data);
-        $notification=array(
-            'messege'=>'Product Image Two Updated Successfully',
-            'alert-type'=>'success'
-          );
-        return Redirect()->route('all.product')->with($notification);
+        return Redirect()->route('all.product');
         }
 
 
@@ -248,11 +216,7 @@ class ProductController extends Controller
           $success = $image_one->move($upload_path,$image_full_name);
           $data['image_three'] = $image_url;
           $productimg = DB::table('products')->where('id',$id)->update($data);
-          $notification=array(
-            'messege'=>'Product Image Three Updated Successfully',
-              'alert-type'=>'success'
-            );
-          return Redirect()->route('all.product')->with($notification);
+          return Redirect()->route('all.product');
             }
     }
 

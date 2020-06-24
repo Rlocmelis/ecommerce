@@ -218,8 +218,8 @@ $wishlist = DB::table('wishlists')->where('user_id',Auth::id())->get();
              e.preventDefault();
              var link = $(this).attr("href");
                 swal({
-                  title: "Are you Want to Return?",
-                  text: "Once Teturn, this will return your money!",
+                  title: "Do you want to Return this?",
+                  text: "We gib muney!",
                   icon: "warning",
                   buttons: true,
                   dangerMode: true,

@@ -24,20 +24,12 @@ class CouponController extends Controller
       $data['coupon'] = $request->coupon;
       $data['discount'] = $request->discount;
       DB::table('coupons')->insert($data);
-      $notification=array(
-        'messege'=>'Coupon Inserted Successfully',
-        'alert-type'=>'success'
-      );
-        return Redirect()->back()->with($notification);
+        return Redirect()->back();
     }
 
     public function DeleteCoupon($id){
       DB::table('coupons')->where('id',$id)->delete();
-      $notification=array(
-        'messege'=>'Coupon Deleted Successfully',
-        'alert-type'=>'success'
-      );
-        return Redirect()->back()->with($notification);
+        return Redirect()->back();
     }
 
     public function EditCoupon($id){
@@ -52,11 +44,7 @@ class CouponController extends Controller
       $data['coupon'] = $request->coupon;
       $data['discount'] = $request->discount;
       DB::table('coupons')->where('id',$id)->update($data);
-      $notification=array(
-        'messege'=>'Coupon Updated Successfully',
-        'alert-type'=>'success'
-      );
-        return Redirect()->route('admin.coupon')->with($notification);
+        return Redirect()->route('admin.coupon');
 
     }
 
@@ -69,11 +57,7 @@ class CouponController extends Controller
 
     public function DeleteSub($id){
       DB::table('newsletters')->where('id',$id)->delete();
-      $notification=array(
-        'messege'=>'Subscriber Deleted Successfully',
-        'alert-type'=>'success'
-      );
-        return Redirect()->back()->with($notification);
+        return Redirect()->back();
     }
 
 }

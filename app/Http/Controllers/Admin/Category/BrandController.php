@@ -37,18 +37,10 @@ class BrandController extends Controller
 
      $data['brand_logo'] = $image_url;
      $brand = DB::table('brands')->insert($data);
-      $notification=array(
-       'messege'=>'Brand Inserted Successfully',
-       'alert-type'=>'success'
-      );
-      return Redirect()->back()->with($notification);
+      return Redirect()->back();
    }else{
       $brand = DB::table('brands')->insert($data);
-      $notification=array(
-        'messege'=>'Its Done',
-        'alert-type'=>'success'
-      );
-      return Redirect()->back()->with($notification);
+      return Redirect()->back();
    }
   }
 
@@ -57,11 +49,7 @@ class BrandController extends Controller
     $image = $data->brand_logo;
     unlink($image);
     $brand = DB::table ('brands')->where('id',$id)->delete();
-    $notification=array(
-      'messege'=>'Brand Deleted',
-      'alert-type'=>'success'
-    );
-    return Redirect()->back()->with($notification);
+    return Redirect()->back();
   }
   public function EditBrand($id){
   	$brand = DB::table('brands')->where('id',$id)->first();
@@ -83,18 +71,10 @@ class BrandController extends Controller
    	  $success = $image->move($upload_path,$image_full_name);
    	  $data['brand_logo'] = $image_url;
    	  $brand = DB::table('brands')->where('id',$id)->update($data);
-   	  $notification=array(
-        'messege'=>'Brand Updated Successfully',
-        'alert-type'=>'success'
-      );
-      return Redirect()->route('brands')->with($notification);
+      return Redirect()->route('brands');
    	}else{
    		 $brand = DB::table('brands')->where('id',$id)->update($data);
-   		 $notification=array(
-         'messege'=>'Update Without Images',
-         'alert-type'=>'success'
-       );
-       return Redirect()->route('brands')->with($notification);
+       return Redirect()->route('brands');
    	}
   }
 

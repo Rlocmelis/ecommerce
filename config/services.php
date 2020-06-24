@@ -30,4 +30,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'google' => [
+        'client_id' => '828959059368-klt19jgq1eaife36j9dtd9facjslds8c.apps.googleusercontent.com',
+        'client_secret' => 'W3OE6PWFBpPOJ5pH5qVVWsAh',
+        'redirect' =>  'http://e-shop.lv/callback/google',
+    ],
 ];

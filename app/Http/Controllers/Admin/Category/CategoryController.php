@@ -34,22 +34,13 @@ class CategoryController extends Controller
     $category= new Category();
     $category->category_name=$request->category_name;
     $category->save();
-
-      $notification=array(
-                    'messege'=>'Category Added Successfully',
-                    'alert-type'=>'success',
-                    );
-      return Redirect()->back()->with($notification);
+      return Redirect()->back();
 
   }
 
   public function Deletecategory($id){
     DB::table('categories')->where('id',$id)->delete();
-    $notification=array(
-                  'messege'=>'Category Deleted Successfully',
-                  'alert-type'=>'success',
-                  );
-                  return Redirect()->back()->with($notification);
+                  return Redirect()->back();
   }
 
 
@@ -72,18 +63,10 @@ class CategoryController extends Controller
     $data['category_name']=$request->category_name;
     $update=DB::table('categories')->where('id',$id)->update($data);
     if ($update){
-      $notification=array(
-                    'messege'=>'Category Updated Successfully',
-                    'alert-type'=>'success',
-                    );
-                    return Redirect()->route('categories')->with($notification);
+                    return Redirect()->route('categories');
     }
     else {
-      $notification=array(
-                    'messege'=>'Nothing To Update',
-                    'alert-type'=>'error',
-                    );
-                    return Redirect()->route('categories')->with($notification);
+                    return Redirect()->route('categories');
     }
 
   }

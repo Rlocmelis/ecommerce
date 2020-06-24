@@ -36,7 +36,7 @@ class PostController extends Controller
       'messege'=>'Blog category added successfully',
       'alert-type'=>'success'
     );
-    return Redirect()->back()->with($notification);
+    return Redirect()->back();
 
   }
 
@@ -46,7 +46,7 @@ class PostController extends Controller
       'messege'=>'Blog category Deleted successfully',
       'alert-type'=>'success'
     );
-    return Redirect()->back()->with($notification);
+    return Redirect()->back();
   }
 
 
@@ -66,7 +66,7 @@ class PostController extends Controller
       'messege'=>'Blog category Updated successfully',
       'alert-type'=>'success'
     );
-    return Redirect()->route('add.blog.categorylist')->with($notification);
+    return Redirect()->route('add.blog.categorylist');
 
   }
 
@@ -97,7 +97,7 @@ class PostController extends Controller
         'messege'=>'Post Inserted successfully',
         'alert-type'=>'success'
       );
-      return Redirect()->back()->with($notification);
+      return Redirect()->back();
 
   }else{
     $data['post_image']='';
@@ -130,7 +130,7 @@ class PostController extends Controller
       'messege'=>'Post Deleted Successfully',
       'alert-type'=>'success'
     );
-    return Redirect()->back()->with($notification);
+    return Redirect()->back();
 
   }
   public function EditPost($id){
@@ -163,7 +163,7 @@ class PostController extends Controller
         'messege'=>'Post Updated successfully',
         'alert-type'=>'success'
       );
-      return Redirect()->route('all.blogpost')->with($notification);
+      return Redirect()->route('all.blogpost');
 
   }else{
     $data['post_image']=$old_image;
@@ -172,7 +172,7 @@ class PostController extends Controller
       'messege'=>'Post Updated without image',
       'alert-type'=>'success'
     );
-    return Redirect()->route('all.blogpost')->with($notification);
+    return Redirect()->route('all.blogpost');
   }
   }
 

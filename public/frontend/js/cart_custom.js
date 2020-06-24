@@ -18,6 +18,7 @@ $(document).ready(function()
 		}
 	}
 
+
 	function initCustomDropdown()
 	{
 		if($('.custom_dropdown_placeholder').length && $('.custom_list').length)

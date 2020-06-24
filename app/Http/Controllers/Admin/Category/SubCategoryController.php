@@ -30,20 +30,12 @@ class SubCategoryController extends Controller
      $data['category_id'] = $request->category_id;
      $data['subcategory_name'] = $request->subcategory_name;
      DB::table('subcategories')->insert($data);
-     $notification=array(
-       'messege'=>'Sub Category Inserted Successfully',
-       'alert-type'=>'success'
-     );
-       return Redirect()->back()->with($notification);
+       return Redirect()->back();
     }
 
     public function DeleteSubcat($id){
      DB::table('subcategories')->where('id',$id)->delete();
-     $notification=array(
-       'messege'=>'Sub Category Deleted Successfully',
-       'alert-type'=>'success'
-     );
-     return Redirect()->back()->with($notification);
+     return Redirect()->back();
     }
 
     public function EditSubcat($id){
@@ -57,11 +49,7 @@ class SubCategoryController extends Controller
       $data['category_id'] = $request->category_id;
       $data['subcategory_name'] = $request->subcategory_name;
       DB::table('subcategories')->where('id',$id)->update($data);
-      $notification=array(
-        'messege'=>'Sub Category Updated Successfully',
-        'alert-type'=>'success'
-      );
-      return Redirect()->route('sub.categories')->with($notification);
+      return Redirect()->route('sub.categories');
     }
 
 }

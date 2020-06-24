@@ -15,11 +15,7 @@ class FrontController extends Controller
       $data = array();
       $data['email'] = $request->email;
       DB::table('newsletters')->insert($data);
-      $notification=array(
-        'messege'=>'Thanks for Subscribing',
-        'alert-type'=>'success'
-      );
-        return Redirect()->back()->with($notification);
+        return Redirect()->back();
 
     }
 }

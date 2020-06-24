@@ -5,7 +5,7 @@
 
 <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/cart_styles.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/cart_responsive.css') }}">
-	<!-- Cart -->
+
 
 	<div class="cart_section">
 		<div class="container">
@@ -15,7 +15,7 @@
 						<div class="cart_title">Your Wishlist Product</div>
 						<div class="cart_items">
 							<ul class="cart_list">
-                              
+
                               @foreach($product as $row)
 
 		<li class="cart_item clearfix">
@@ -34,7 +34,7 @@
 					<div class="cart_item_text"> {{ $row->product_color }}</div>
 				</div>
 				 @endif
- 
+
 
                 @if($row->product_size == NULL)
 
@@ -44,14 +44,14 @@
 					<div class="cart_item_text"> {{ $row->product_size }}</div>
 				</div>
                 @endif
-                  
+
                 <div class="cart_item_color cart_info_col">
 					<div class="cart_item_title">Action</div><br>
 					<a href="#" class="btn btn-sm btn-danger">Add to Cart</a>
 				</div>
-				 
 
- 
+
+
 
 
 
@@ -60,10 +60,10 @@
 								@endforeach
 							</ul>
 						</div>
-						
-						 
 
-						 
+
+
+
 					</div>
 				</div>
 			</div>

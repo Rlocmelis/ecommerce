@@ -43,11 +43,7 @@ class ProductController extends Controller
    	$data['options']['color'] = $request->color;
    	$data['options']['size'] = $request->size;
    	 Cart::add($data);
-   	$notification=array(
-                          'messege'=>'Product Successfully Added To The Cart',
-                          'alert-type'=>'success'
-                           );
-                         return Redirect()->back()->with($notification);
+                         return Redirect()->back();
    }else{
 
    	$data['id'] = $product->id;
@@ -59,11 +55,7 @@ class ProductController extends Controller
    	$data['options']['color'] = $request->color;
    	$data['options']['size'] = $request->size;
    	 Cart::add($data);
-   	 $notification=array(
-                          'messege'=>'Product Successfully Added To The Cart',
-                          'alert-type'=>'success'
-                           );
-                         return Redirect()->back()->with($notification);
+                         return Redirect()->back();
 
       }
 

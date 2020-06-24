@@ -56,11 +56,7 @@ $data['options']['size'] = '';
 
     public function removeCart($rowId){
     	Cart::remove($rowId);
-    	$notification=array(
-                        'messege'=>'Product Removed',
-                        'alert-type'=>'success'
-                         );
-                       return Redirect()->back()->with($notification);
+      return Redirect()->back();
 
     }
 
@@ -70,11 +66,7 @@ $data['options']['size'] = '';
     	$rowId = $request->productid;
     	$qty = $request->qty;
     	Cart::update($rowId,$qty);
-    	$notification=array(
-                        'messege'=>'Product Quantity Updated',
-                        'alert-type'=>'success'
-                         );
-                       return Redirect()->back()->with($notification);
+      return Redirect()->back();
 
     }
 
@@ -85,11 +77,7 @@ $data['options']['size'] = '';
      	return view('pages.checkout',compact('cart'));
 
    }else{
-   	$notification=array(
-                         'messege'=>'At first Login Your Account',
-                         'alert-type'=>'success'
-                          );
-                        return Redirect()->route('login')->with($notification);
+      return Redirect()->route('login');
    }
 
     }

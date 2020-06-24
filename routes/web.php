@@ -124,3 +124,8 @@ Route::get('admin/logout', 'AdminController@logout')->name('admin.logout');
         // Blog Post Route
 
         Route::get('blog/post', 'BlogController@blog')->name('blog.post');
+
+        //google
+
+        Route::get('/auth/redirect/{provider}','SocialController@redirect');
+        Route::get('/callback/{provider}','SocialController@callback');
