@@ -63,9 +63,8 @@
                                  <li>
                                      <a href="{{route('home')}}"> <div class="user_icon"><img src="{{ asset('public/frontend/images/user.svg')}}" alt=""></div>Profile<i class="fas fa-chevron-down"></i></a>
                                      <ul>
-                                         <li><a href="#">Wishlist</a></li>
-                                         <li><a href="#">Checkout</a></li>
-                                         <li><a href="#">Others</a></li>
+                                         <li><a href="{{route('user.wishlist')}}">Wishlist</a></li>
+                                         <li><a href="{{route('user.checkout')}}">Checkout</a></li>
                                      </ul>
                                  </li>
                              </ul>
@@ -135,7 +134,7 @@ $wishlist = DB::table('wishlists')->where('user_id',Auth::id())->get();
 @endphp
                                <div class="wishlist_icon"><img src="{{ asset('public/frontend/images/heart.png')}}" alt=""></div>
                                <div class="wishlist_content">
-                                   <div class="wishlist_text"><a href="#">Wishlist</a></div>
+                                   <div class="wishlist_text"><a href="{{route('user.wishlist')}}">Wishlist</a></div>
                                    <div class="wishlist_count">{{count($wishlist)}}</div>
                                </div>
 @endguest

@@ -112,6 +112,14 @@ Route::get('admin/logout', 'AdminController@logout')->name('admin.logout');
 
         Route::post('cart/product/add/{id}',  'ProductController@AddCart');
 
+        Route::get('remove/cart/{rowId}', 'CartController@removeCart');
+
+        Route::post('update/cart/item/', 'CartController@UpdateCart')->name('update.cartitem');
+
+        Route::get('user/checkout/', 'CartController@Checkout')->name('user.checkout');
+
+        Route::get('user/wishlist/', 'CartController@wishlist')->name('user.wishlist');
+
 
         // Blog Post Route
 

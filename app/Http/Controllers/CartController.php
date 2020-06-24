@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use Cart;
+use Auth;
 
 class CartController extends Controller
 {
@@ -56,7 +57,7 @@ $data['options']['size'] = '';
     public function removeCart($rowId){
     	Cart::remove($rowId);
     	$notification=array(
-                        'messege'=>'Product Remove form Cart',
+                        'messege'=>'Product Removed',
                         'alert-type'=>'success'
                          );
                        return Redirect()->back()->with($notification);
@@ -74,6 +75,33 @@ $data['options']['size'] = '';
                         'alert-type'=>'success'
                          );
                        return Redirect()->back()->with($notification);
+
+    }
+
+    public function Checkout(){
+   if (Auth::check()) {
+
+   	$cart = Cart::content();
+     	return view('pages.checkout',compact('cart'));
+
+   }else{
+   	$notification=array(
+                         'messege'=>'At first Login Your Account',
+                         'alert-type'=>'success'
+                          );
+                        return Redirect()->route('login')->with($notification);
+   }
+
+    }
+
+    public function wishlist(){
+    $userid = Auth::id();
+    $product = DB::table('wishlists')
+            ->join('products','wishlists.product_id','products.id')
+            ->select('products.*','wishlists.user_id')
+            ->where('wishlists.user_id',$userid)
+            ->get();
+            return view('pages.wishlist',compact('product'));
 
     }
 

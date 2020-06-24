@@ -3,6 +3,12 @@
 @section('content')
 @include('layouts.menubar')
 
+@php
+$setting = DB::table('settings')->first();
+$charge = $setting->shipping_charge;
+$vat = $setting->vat;
+@endphp
+
 <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/cart_styles.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/cart_responsive.css') }}">
 	<!-- Cart -->
@@ -12,7 +18,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="cart_container">
-						<div class="cart_title">Shopping Cart</div>
+						<div class="cart_title">Checkout</div>
 						<div class="cart_items">
 							<ul class="cart_list">
 
@@ -58,6 +64,8 @@
            </form>
 				</div>
 
+
+
 				<div class="cart_item_price cart_info_col">
 					<div class="cart_item_title">Price</div>
 					<div class="cart_item_text">${{ $row->price }}</div>
@@ -69,7 +77,7 @@
 
                 <div class="cart_item_total cart_info_col">
 					<div class="cart_item_title">Action</div><br>
-					<a href="{{ url('remove/cart/'.$row->rowId ) }}" class="btn btn-sm btn-danger">x</a>
+	 <a href="{{ url('remove/cart/'.$row->rowId ) }}" class="btn btn-sm btn-danger">x</a>
 				</div>
 
 
@@ -81,16 +89,48 @@
 						</div>
 
 						<!-- Order Total -->
-						<div class="order_total">
-							<div class="order_total_content text-md-right">
-								<div class="order_total_title">Order Total:</div>
-								<div class="order_total_amount">${{ Cart::total() }}</div>
-							</div>
-						</div>
+
+          <div class="order_total_content" style="padding: 15px;">
+
+          <h5 style="margin-left: 20px;"> Apply Coupon </h5>
+          	<form method="post" action="">
+          		@csrf
+          		<div class="form group col-lg-4">
+          			<input type="text" class="form-control" required="" placeholder="Enter Your Coupon">
+          		</div><br>
+         <button type="submit" class="btn btn-danger ml-2">Submit
+         </button>
+          	</form>
+
+          </div>
+
+          <ul class="list-group col-lg-4" style="float: right;">
+
+          	<li class="list-group-item">Subtotal : <span style="float: right;">
+          	${{  Cart::Subtotal() }} </span> </li>
+
+
+
+          	<li class="list-group-item">Shiping Charge : <span style="float: right;">${{ $charge  }} </span> </li>
+          	<li class="list-group-item">Vat : <span style="float: right;">${{ $vat }} </span> </li>
+      <li class="list-group-item">Total : <span style="float: right;">${{ Cart::Subtotal() + $charge + $vat }} </span> </li>
+
+
+          </ul>
+           </div>
+            </div>
+             </div>
+
+
+
+
+
+
+
 
 						<div class="cart_buttons">
 							<button type="button" class="button cart_button_clear">All Cancel</button>
-							<a href="{{ route('user.checkout') }}"  class="button cart_button_checkout">Checkout</a>
+	 <a href="#"  class="button cart_button_checkout">Final Step</a> 
 						</div>
 					</div>
 				</div>
